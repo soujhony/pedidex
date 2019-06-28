@@ -21,7 +21,7 @@ import javax.persistence.TemporalType;
 @Table(name = "PEDIDOS")
 @SequenceGenerator(name = "pedido_seq", allocationSize = 1,
         sequenceName = "PEDIDO_SEQ")
-public class Pedido {
+public class Pedido implements Entidade {
     
     @Id
     @Column(name = "ID_PEDIDO")
@@ -50,6 +50,7 @@ public class Pedido {
     @JoinColumn(name = "ID_PEDIDO")
     private List<PedidoItem> items;
 
+    @Override
     public Long getId() {
         return id;
     }

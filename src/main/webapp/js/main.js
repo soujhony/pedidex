@@ -18,8 +18,8 @@ function AppConfig($stateProvider) {
             templateUrl: '/views/clientes/list.html'
         })
         .state({
-            name: 'clientesNovo',
-            url: '/clientes/novo',
+            name: 'clientes.novo',
+            url: '/novo',
             templateUrl: '/views/clientes/form.html'
         });
 }

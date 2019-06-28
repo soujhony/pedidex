@@ -1,6 +1,5 @@
 package com.jhonystein.pedidex.models;
 
-import java.io.Serializable;
 import java.math.BigDecimal;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -14,7 +13,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "PRODUTOS")
 @SequenceGenerator(name = "produtos_seq", sequenceName = "PRODUTOS_SEQ", allocationSize = 1)
-public class Produto implements Serializable {
+public class Produto implements Entidade {
     
     @Id
     @Column(name = "ID_PRODUTO")
@@ -34,6 +33,7 @@ public class Produto implements Serializable {
     @Column(name = "QT_ESTOQUE", precision = 15, scale = 5)
     private BigDecimal estoque;
 
+    @Override
     public Long getId() {
         return id;
     }

@@ -1,6 +1,5 @@
 package com.jhonystein.pedidex.models;
 
-import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -8,17 +7,21 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "CLIENTES")
 @SequenceGenerator(name = "cliente_seq", allocationSize = 1,
         sequenceName = "CLIENTE_SEQ")
-public class Cliente implements Serializable {
+public class Cliente implements Entidade {
     
     @Id
     @Column(name = "ID_CLIENTE")
     @GeneratedValue(generator = "cliente_seq", strategy = GenerationType.SEQUENCE)
     private Long id;
+    @NotNull(message = "{Cliente.documento.NotNull}")
+    @Size(min = 11, max = 20, message = "{Cliente.documento.Size}")
     @Column(name = "NR_DOCUMENTO", length = 20)
     private String documento;
     @Column(name = "NM_CLIENTE", length = 80)
@@ -28,6 +31,7 @@ public class Cliente implements Serializable {
     @Column(name = "DS_EMAIL", length = 120)
     private String email;
 
+    @Override
     public Long getId() {
         return id;
     }

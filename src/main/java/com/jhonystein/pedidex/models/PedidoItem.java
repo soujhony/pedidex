@@ -15,7 +15,7 @@ import javax.persistence.Table;
 @Table(name = "PEDIDO_ITEMS")
 @SequenceGenerator(name = "pedido_items_seq", allocationSize = 10,
         sequenceName = "PEDIDO_ITEMS_SEQ")
-public class PedidoItem {
+public class PedidoItem implements Entidade {
     
     @Id
     @Column(name = "ID_PEDIDO_ITEM")
@@ -29,6 +29,7 @@ public class PedidoItem {
     private BigDecimal valorUnitario;
     private BigDecimal valorTotal;
 
+    @Override
     public Long getId() {
         return id;
     }
