@@ -7,6 +7,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
@@ -24,10 +25,13 @@ public class Cliente implements Entidade {
     @Size(min = 11, max = 20, message = "{Cliente.documento.Size}")
     @Column(name = "NR_DOCUMENTO", length = 20)
     private String documento;
+    @NotNull
+    @Size(min = 5, max = 80)
     @Column(name = "NM_CLIENTE", length = 80)
     private String nome;
     @Column(name = "NR_TELEFONE", length = 20)
     private String telefone;
+    @Email
     @Column(name = "DS_EMAIL", length = 120)
     private String email;
 

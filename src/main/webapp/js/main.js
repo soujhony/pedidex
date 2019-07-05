@@ -15,11 +15,22 @@ function AppConfig($stateProvider) {
         .state({
             name: 'clientes',
             url: '/clientes',
-            templateUrl: '/views/clientes/list.html'
+            templateUrl: '/views/clientes/list.html',
+            controller: 'ClienteListController',
+            controllerAs: 'vm'
         })
         .state({
-            name: 'clientes.novo',
-            url: '/novo',
-            templateUrl: '/views/clientes/form.html'
+            name: 'clientesNovo',
+            url: '/clientes/novo',
+            templateUrl: '/views/clientes/form.html',
+            controller: 'ClienteFormController',
+            controllerAs: 'vm'
+        })
+        .state({
+            name: 'clientesEditar',
+            url: '/clientes/:id',
+            templateUrl: '/views/clientes/form.html',
+            controller: 'ClienteFormController',
+            controllerAs: 'vm'
         });
 }

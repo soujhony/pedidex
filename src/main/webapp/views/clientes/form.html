@@ -1,49 +1,33 @@
 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3">
-    <h1 class="h2">Novo cliente</h1>
+    <h1 class="h2">{{vm. titulo}}</h1>
 </div>
 <form>
     <div class="form-row">
         <div class="form-group col-md-6">
-            <label for="inputEmail4">Email</label>
-            <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
-        </div>
-        <div class="form-group col-md-6">
-            <label for="inputPassword4">Senha</label>
-            <input type="password" class="form-control" id="inputPassword4" placeholder="Senha">
+            <label>Documento</label>
+            <input ng-class="{ 'is-invalid': vm.errors.documento }" ng-model="vm.cliente.documento" type="text" class="form-control">
+            <div ng-if="vm.errors.documento" class="invalid-feedback">{{vm.errors.documento[1]}}</div>
         </div>
     </div>
     <div class="form-group">
-        <label for="inputAddress">Endereço</label>
-        <input type="text" class="form-control" id="inputAddress" placeholder="Rua dos Bobos, nº 0">
-    </div>
-    <div class="form-group">
-        <label for="inputAddress2">Endereço 2</label>
-        <input type="text" class="form-control" id="inputAddress2" placeholder="Apartamento, hotel, casa, etc.">
+        <label>Nome</label>
+        <input ng-class="{ 'is-invalid': vm.errors.nome }" ng-model="vm.cliente.nome" type="text" class="form-control">
+        <div ng-if="vm.errors.nome" class="invalid-feedback">{{vm.errors.nome[1]}}</div>
     </div>
     <div class="form-row">
         <div class="form-group col-md-6">
-            <label for="inputCity">Cidade</label>
-            <input type="text" class="form-control" id="inputCity">
+            <label>Telefone</label>
+            <input ng-class="{ 'is-invalid': vm.errors.telefone }" ng-model="vm.cliente.telefone" type="text" class="form-control">
+            <div ng-if="vm.errors.telefone" class="invalid-feedback">{{vm.errors.telefone[1]}}</div>
         </div>
-        <div class="form-group col-md-4">
-            <label for="inputEstado">Estado</label>
-            <select id="inputEstado" class="form-control">
-                <option selected>Escolher...</option>
-                <option>...</option>
-            </select>
-        </div>
-        <div class="form-group col-md-2">
-            <label for="inputCEP">CEP</label>
-            <input type="text" class="form-control" id="inputCEP">
+        <div class="form-group col-md-6">
+            <label>Email</label>
+            <input ng-class="{ 'is-invalid': vm.errors.email }" ng-model="vm.cliente.email" type="email" class="form-control">
+            <div ng-if="vm.errors.email" class="invalid-feedback">{{vm.errors.email[1]}}</div>
         </div>
     </div>
-    <div class="form-group">
-        <div class="form-check">
-            <input class="form-check-input" type="checkbox" id="gridCheck">
-            <label class="form-check-label" for="gridCheck">
-                Clique em mim
-            </label>
-        </div>
+    <div class="mb-2 text-lg-right">
+        <button ng-click="vm.save()" type="button" class="btn btn-success">Salvar</button>
+        <button ui-sref="clientes" type="button" class="btn btn-outline-danger">Cancelar</button>
     </div>
-    <button type="submit" class="btn btn-primary">Entrar</button>
 </form>
